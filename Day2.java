@@ -1,5 +1,5 @@
 import java.util.*;
-public class Thingy{
+public class Day2{
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
         System.out.println("Please enter a series of ten numbers");
