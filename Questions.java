@@ -5,7 +5,7 @@ public class Questions{
         Questions thing=new Questions();
     }
     public Questions(){
-        printPerfectNumbers();
+        printArmstrongNumber();
     }
     public void singleCharCheck(){
         char toCheck;
@@ -260,6 +260,20 @@ public class Questions{
                 if(num%divider==0)sum+=divider;
             }
             if(sum==num)System.out.println(num+" is a perfect number!");
+        }
+    }
+    public void printArmstrongNumber(){
+        for(int num=1;num<100000;++num){
+            int digits=0,digitAid=num,sum=0,powAid=num;
+            while(digitAid>0){
+                ++digits;
+                digitAid/=10;
+            }
+            while(powAid>0){
+                sum+=Math.pow(powAid%10,digits);
+                powAid/=10;
+            }
+            if(sum==num)System.out.println(num+" is an armstrong number");
         }
     }
 }
