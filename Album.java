@@ -21,4 +21,12 @@ public class Album{
         System.out.println("Album name: "+name+"\nNumber of tracks: "+tracksNum+"\nPrice: "+price+"\nAffordability: ");
         checkAffordability();
     }
+    public void checkTracks(){
+        if(tracksNum>10){
+            System.out.println("Many tracks");
+        }
+        else{
+            System.out.println("Few tracks");
+        }
+    }
 }
