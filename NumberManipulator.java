@@ -20,7 +20,7 @@ public class NumberManipulator{
         }
         return answer;
     }
-    public String findWord(int digit){
+    public static String findWord(int digit){
         switch (digit) {
             case 0:
                 return "zero";

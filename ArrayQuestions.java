@@ -5,7 +5,7 @@ public class ArrayQuestions{
         ArrayQuestions thing=new ArrayQuestions();
     }
     public ArrayQuestions(){
-        sort();
+        printNameByDigitWithDivideTen();
     }
     //q2
     public void deltaBiggestSmallest(){
@@ -62,29 +62,108 @@ public class ArrayQuestions{
         }
     }
     //q6
-    public void sort(){
+    public void simpleSort(){
         Scanner input=new Scanner(System.in);
         int[] nums=new int[10];
-        int lowest;
-        boolean sorted=false;
         for(int i=0;i<nums.length;++i){
             System.out.print("Please enter a number:\n> ");
             nums[i]=input.nextInt();
         }
+        input.close();
+        System.out.print("Unsorted array: ");
         for(int i=0;i<nums.length;++i){
-            int tempLocation=0;
-            for(int j=0;j<nums.length;++j){
-                if(nums[j]<nums[i]){
+            System.out.print(nums[i]+" ");
+        }
+        System.out.println("");
+        for(int i=0;i<nums.length;++i){
+            int tempLocation=i;
+            for(int j=i;j<nums.length;++j){
+                if(nums[j]<nums[tempLocation]){
                     tempLocation=j;
                 }
             }
-            int temp=nums[tempLocation];
+            int temp=nums[tempLocation]; 
             nums[tempLocation]=nums[i];
             nums[i]=temp;
-        }
+        } 
         System.out.print("Sorted array: ");
         for(int i=0;i<nums.length;++i){
             System.out.print(nums[i]+" ");
+        }
+    }
+
+    public void bubbleSort(){
+        Scanner input=new Scanner(System.in);
+        int[] nums=new int[10];
+        for(int i=0;i<nums.length;++i){
+            System.out.print("Please enter a number:\n> ");
+            nums[i]=input.nextInt();
+        }
+        input.close();
+        System.out.print("Unsorted array: ");
+        for(int i=0;i<nums.length;++i){
+            System.out.print(nums[i]+" ");
+        }
+        System.out.println("");
+    }
+    //q7
+    public void findPrimesAndPerfects(){
+        Scanner input=new Scanner(System.in);
+        int[] nums=new int[10];
+        for(int i=0;i<nums.length;++i){
+            System.out.print("Please enter a number:\n> ");
+            nums[i]=input.nextInt();
+        }
+        input.close();
+        String primesAnswers="Primes in this array: ";
+        String perfectsAnswers="Perfects in this array: ";
+        for(int i=0;i<nums.length;++i){
+            int num=nums[i];
+            //check prime
+            boolean prime=true;
+            for(int p=2;p<num&&prime==true;++p){
+                if(num%p==0){
+                    prime=false;
+                    break;
+                }
+            }
+            if(prime)primesAnswers+=num+" ";
+            //check perfect
+            int sum=0;
+            for(int divider=1;divider<num;++divider){
+                if(num%divider==0)sum+=divider;
+            }
+            if(sum==num)perfectsAnswers+=num+" ";
+        }
+        System.out.println(primesAnswers+"\n"+perfectsAnswers);
+    }
+    //q9
+    public void printNameByDigit(){
+        System.out.print("Please enter a number\n> ");
+        @SuppressWarnings("resource")
+        int num=new Scanner(System.in).nextInt();
+        char[] numArray=Integer.toString(num).toCharArray();
+        System.out.print("Number as words: ");
+        for(int i=0;i<numArray.length;++i){
+            System.out.print(NumberManipulator.findWord(Integer.parseInt(numArray[i]+""))+" ");
+        }
+    }
+    //q9.1
+    public void printNameByDigitWithDivideTen(){
+        System.out.print("Please enter a number\n> ");
+        @SuppressWarnings("resource")
+        int num=new Scanner(System.in).nextInt(),digitAid=num,digits=0;
+        while(digitAid>0){
+            ++digits;
+            digitAid/=10;
+        }
+        int[] numArray=new int[digits];
+        for(int i=0;i<numArray.length;++i){
+            numArray[i]=num%10;
+            num/=10;
+        }
+        for(int i=numArray.length-1;i>=0;--i){
+            System.out.print(NumberManipulator.findWord(Integer.parseInt(numArray[i]+""))+" ");
         }
     }
 }

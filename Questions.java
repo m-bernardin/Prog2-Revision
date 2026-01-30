@@ -5,7 +5,7 @@ public class Questions{
         Questions thing=new Questions();
     }
     public Questions(){
-        printArmstrongNumber();
+        checkPerfectNumber();
     }
     public void singleCharCheck(){
         char toCheck;
