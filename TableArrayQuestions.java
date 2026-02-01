@@ -1,16 +1,16 @@
 import java.util.Scanner;
 @SuppressWarnings("unused")
-public class ArrayQuestionsTwoDimensions{
+public class TableArrayQuestions{
     public static void main(String[] args) {
-        ArrayQuestionsTwoDimensions thing=new ArrayQuestionsTwoDimensions();
+        TableArrayQuestions thing=new TableArrayQuestions();
     }
-    public ArrayQuestionsTwoDimensions(){
+    public TableArrayQuestions(){
         sumColumns();
     }
-    private String printTable(int[][] table){
+    private String printTable(int[][] table,int nbColumns, int nbRows){
         String tableString="Visualisation of table:\n";
-        for(int x=0;x<table.length;++x){
-            for(int y=0;y<table.length;++y){
+        for(int x=0;x<nbColumns;++x){
+            for(int y=0;y<nbRows;++y){
                 tableString+=table[x][y]+" ";
             }
             tableString+="\n";
@@ -33,7 +33,7 @@ public class ArrayQuestionsTwoDimensions{
         }
         System.out.println("Table built");
         input.close();
-        System.out.print(printTable(table));
+        System.out.print(printTable(table,table.length,table.length));
         int sum=0;
         for(int x=0;x<table.length;++x){
             for(int y=0;y<table.length;++y){
@@ -54,7 +54,7 @@ public class ArrayQuestionsTwoDimensions{
         }
         System.out.println("Table built");
         input.close();
-        System.out.print(printTable(table));
+        System.out.print(printTable(table,table.length,table.length));
         for(int x=0;x<table.length;++x){
             int sum=0;
             for(int y=0;y<table.length;++y){
@@ -75,13 +75,13 @@ public class ArrayQuestionsTwoDimensions{
         }
         System.out.println("Table built");
         input.close();
-        System.out.print(printTable(table));
+        System.out.print(printTable(table,2,5));
         for(int y=0;y<5;++y){
             int sum=0;
             for(int x=0;x<2;++x){
                 sum+=table[x][y];
             }
-            System.out.println("Sum of columns "+y+": "+sum);
+            System.out.println("Sum of column: "+sum);
         }
     }
 }
