@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Lab1Practice{
     @SuppressWarnings("resource")
     public static void main(String[] args) {
-        System.out.print("Please select an option\n0. convert number to binary\n1. convert number to hexadecimal\n2. find commons in two arrays\n> ");
+        System.out.print("Please select an option\n0. convert number to binary\n1. convert number to hexadecimal\n2. find commons in two arrays\n3. check if an table is symmetrical\n4. sort table in descending order\n> ");
         int option=new Scanner(System.in).nextInt();
         
         switch (option) {
@@ -18,6 +18,10 @@ public class Lab1Practice{
                 break;
             case 2:
                 findRepeats();
+            case 3:
+                checkTableSymmetrical();
+            case 4:
+                sortTableDesc();
         }
     }
     public static void convertToBinary(int num){
@@ -118,5 +122,53 @@ public class Lab1Practice{
             result[i]=tempArray.get(i);
         }
         return result;
+    }
+    @SuppressWarnings("resource")
+    private static void checkTableSymmetrical(){
+        int[][] table;
+        System.out.println("Check true (0) or false (1)?");
+        if(new Scanner(System.in).nextInt()==1){
+            int[][] temp={{9,13,5,2},{1,11,7,6,},{3,7,4,1},{6,0,7,10}};
+            table=temp;
+        }
+        else{
+            int[][] temp={{9,13,3,6},{13,11,7,6},{3,7,4,7},{6,6,7,10}};
+            table=temp;
+        }
+        boolean symmetrical=true;
+        for(int x=1;x<table.length;++x){
+            for(int y=1;y<table.length;++y){
+                if(table[x][y]!=table[y][x])symmetrical=false;
+            }
+        }
+        if(symmetrical)System.out.println("Table is symmetrical");
+        else System.out.println("Table is not symmetrical");
+    }
+    private static void sortTableDesc(){
+        int[][] table={{9,13,5,2},{1,11,7,6,},{3,7,4,1},{6,0,7,10}};
+        for(int x=0;x<table.length;++x){
+            int tempLocation=x;
+            for(int y=0;y<table.length;++y){
+                for(int j=x;j<table.length;++j){
+                    if(table[x][j]>table[x][tempLocation]){
+                        tempLocation=j;
+                    }
+                }
+            }
+            int temp=table[x][tempLocation]; 
+            table[tempLocation]=table[x];
+            table[x][y]=temp;
+        }
+        System.out.println(printTable(table, 4, 4));
+    }
+    private static String printTable(int[][] table,int nbColumns, int nbRows){
+        String tableString="Visualisation of table:\n";
+        for(int x=0;x<nbColumns;++x){
+            for(int y=0;y<nbRows;++y){
+                tableString+=table[x][y]+" ";
+            }
+            tableString+="\n";
+        }
+        return tableString;
     }
 }
