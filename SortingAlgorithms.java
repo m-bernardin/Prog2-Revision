@@ -29,4 +29,27 @@ public class SortingAlgorithms{
         result+="(time elapsed: "+totalTime+"ms)";
         return result;
     }
+    public static String bubbleSort(int[] nums){
+        long begin=System.currentTimeMillis();
+
+        for(int j=0;j<nums.length;++j){
+            for(int i=j;i<nums.length-1;++i){
+                int compare=++j;
+                if(j>compare){
+                    int temp=nums[compare];
+                    nums[compare]=nums[j];
+                    nums[j]=temp;
+                }
+            }
+        }
+
+        long totalTime=System.currentTimeMillis()-begin;
+        String result="Sorted using bubble sort: ";
+        for(int i=0;i<nums.length;++i){
+            //System.out.println("##item added to string");
+            result+=nums[i]+" ";
+        }
+        result+="(time elapsed: "+totalTime+"ms)";
+        return result;
+    }
 }
