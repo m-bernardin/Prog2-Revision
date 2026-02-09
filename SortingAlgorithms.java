@@ -32,15 +32,23 @@ public class SortingAlgorithms{
     public static String bubbleSort(int[] nums){
         long begin=System.currentTimeMillis();
 
-        for(int j=0;j<nums.length;++j){
-            for(int i=j;i<nums.length-1;++i){
-                int compare=++j;
-                if(j>compare){
+        for(int iteration=0;iteration<nums.length;++iteration){
+            for(int i=0;i<nums.length-1;++i){
+                int compare=i+1;
+                System.out.println("comparing "+nums[i]+" and "+nums[compare]);
+                if(nums[i]>nums[compare]){
                     int temp=nums[compare];
-                    nums[compare]=nums[j];
-                    nums[j]=temp;
+                    nums[compare]=nums[i];
+                    nums[i]=temp;
+                    System.out.println("**"+nums[i]+" and "+nums[compare]+" swapped");
                 }
             }
+            System.out.print("**iteration complete: current status: ");
+            for(int i=0;i<nums.length;++i){
+                //System.out.println("##item added to string");
+                System.out.print(nums[i]+" ");
+            }
+            System.out.println("");
         }
 
         long totalTime=System.currentTimeMillis()-begin;
