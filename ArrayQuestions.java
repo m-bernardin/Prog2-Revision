@@ -5,7 +5,7 @@ public class ArrayQuestions{
         ArrayQuestions thing=new ArrayQuestions();
     }
     public ArrayQuestions(){
-        printNameByDigitWithDivideTen();
+        simpleSort();
     }
     //q2
     public void deltaBiggestSmallest(){
