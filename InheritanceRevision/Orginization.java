@@ -1,4 +1,16 @@
 public class Orginization {
     protected String name;
-    protected String establishment;
+    protected int establishment;
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public int getEstablishment(){
+        return establishment;
+    }
+    public void setEstablishment(int establishment){
+        this.establishment = establishment;
+    }
 }
