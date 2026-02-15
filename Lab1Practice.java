@@ -146,15 +146,27 @@ public class Lab1Practice{
     }
     private static void sortTableDesc(){
         int[][] table={{9,13,5,2},{1,11,7,6,},{3,7,4,1},{6,0,7,10}};
-        System.out.println(printTable(table, 4, 4));4
-        for(int x=0;x<table.length;++x){
-            for(int y=0;y<table.length-1;++y){
-                if(table[x][y]>table[x][y+1]){
-                    int tempLocation=y+1;
-                    int temp=table[x][tempLocation]; 
-                    table[x][tempLocation]=table[x][y];
-                    table[x][y]=temp;
+        System.out.println(printTable(table, 4, 4));
+        for(int iteration=0;iteration<16;++iteration){
+            for(int y=0;y<table.length;++y){
+                for(int x=0;x<table.length-1;++x){
+                    if(table[y][x]<table[y][x+1]){
+                        int temp=table[y][x];
+                        table[y][x]=table[y][x+1];
+                        table[y][x+1]=temp;
+                    }
                 }
+                try{
+                    if(table[y][3]<table[y+1][0]){
+                        int temp=table[y][3];
+                        table[y][3]=table[y+1][0];
+                        table[y+1][0]=temp;
+                    }
+                }catch(Exception e){
+                    System.out.println("**fell off");
+                    break;
+                }
+                System.out.println("current state(y="+y+"): "+printTable(table, 4, 4));
             }
             if(x==3||x==4)break;
             if(table[x][table.length-1]>table[x+1][0]){
