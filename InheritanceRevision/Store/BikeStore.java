@@ -19,6 +19,6 @@ public class BikeStore extends Store{
         this.sponsorsClub=sponsorsClub;
     }
     public String toString(){
-        return super.toString()+"\nNb of bike brands carried: "+nbBikeBrands+"\nSponsors a bike club: ";
+        return super.toString()+"\nNb of bike brands carried: "+nbBikeBrands+"\nSponsors a bike club: "+sponsorsClub;
     }
 }
