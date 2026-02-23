@@ -26,7 +26,6 @@ public class Grade{
     }
     public boolean equals(Grade compare){
         if(compare.toString()==toString())return true;
-        System.out.println("**invalid mark");
         return false;
     }
 }
