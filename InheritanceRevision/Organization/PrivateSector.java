@@ -1,4 +1,4 @@
-public class PrivateSector extends Orginization{
+public class PrivateSector extends Organization{
     private String city;
     private double turnOverRate;
     public String getCity(){

@@ -49,7 +49,9 @@ public class Driver{
                     System.out.print("Please enter the annual sales of this store\n>");
                     int annualSales=input.nextInt();
                     int[] monthlySales=new int[12];
-                    for(in)
+                    for(int i=0;i<12;++i)System.out.print("Please enter the sales volume of month "+(i+1)+"\n> ");
+                    store=new MobileStore(name, annualSales, monthlySales);
+                    break;
             }
             System.out.println(store);
         }
