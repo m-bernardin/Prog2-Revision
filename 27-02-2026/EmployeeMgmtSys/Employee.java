@@ -18,6 +18,6 @@ public class Employee{
         this.salary=salary;
     }
     public String toString(){
-        return name+": "+salary+"$/yr";
+        return name+": "+salary+"k$/yr";
     }
 }
