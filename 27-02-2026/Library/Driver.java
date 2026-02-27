@@ -39,16 +39,16 @@ public class Driver {
                     System.out.print("Please enter a title to remove\n> ");
                     String toRemove=input.nextLine();
                     boolean removed=false;
+                    Book removedBook=null;
                     for(Book book:library){
                         if(book.getTitle().equals(toRemove)){
-                            library.remove(book);
+                            removedBook=book;
                             System.out.println("Removed "+book);
                             removed=true;
                         }
                     }
-                    if(!removed){
-                        System.out.println("No book by that title found...");
-                    }
+                    if(removed)library.remove(removedBook);
+                    else System.out.println("No book by that title found...");
                     break;
                 case 3:
                     running=false;
